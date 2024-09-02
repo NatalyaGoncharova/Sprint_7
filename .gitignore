@@ -16348,3 +16348,6 @@ tags
 ### Nohup template
 nohup.out
 
+target/
+!target/allure-report/
+
