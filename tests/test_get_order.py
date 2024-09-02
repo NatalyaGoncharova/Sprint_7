@@ -1,8 +1,11 @@
+import allure
+
 from classes.class_order import OrderApi
 
 
 class TestOrderList:
 
+    @allure.title("Получение списка заказов")
     def test_get_order_list(self):
         response = OrderApi.get_orders()
         assert response.status_code == 200, f"Expected 200, but got {response.status_code}"

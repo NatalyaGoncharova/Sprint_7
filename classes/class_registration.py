@@ -1,10 +1,12 @@
+import allure
 import requests
 from urls import *
-from data import CourierData
+from helper import CourierData
 
 
 class CourierApi:
     @staticmethod
+    @allure.step("Регистрация курьера в системе")
     def registrate_courier(login, password, first_name):
         url = REGISTRATION_COURIER_URL
         data = CourierData.get_courier_registration_data(login, password, first_name)
@@ -12,6 +14,7 @@ class CourierApi:
         return response
 
     @staticmethod
+    @allure.step("Авторизация курьера в системе")
     def authorize_courier(login, password):
         url = AUTHORIZATION_COURIER_URL
         data = CourierData.get_courier_authorization_data(login, password)
@@ -19,6 +22,7 @@ class CourierApi:
         return response
 
     @staticmethod
+    @allure.step("Удаление курьера в системе")
     def delete_courier(courier_id):
         url = f"{REGISTRATION_COURIER_URL}/{courier_id}"
         response = requests.delete(url)

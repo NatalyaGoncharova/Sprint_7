@@ -1,3 +1,4 @@
+import allure
 import pytest
 from classes.class_order import OrderApi
 from faker import Faker
@@ -13,6 +14,7 @@ class TestCreateOrder:
         (["BLACK", "GREY"]),
         (None)
     ])
+    @allure.title("Создание заказа с разными параметрами цвета")
     def test_create_order(self, colors):
         order_data = {
             "first_name": fake.first_name(),
@@ -32,4 +34,3 @@ class TestCreateOrder:
         assert "track" in response.json(), "Response JSON does not contain 'track'"
         assert response.json()["track"] is not None, "Track ID should not be None"
 
-        print(f"Test passed with colors: {colors}, track ID: {response.json()['track']}")
