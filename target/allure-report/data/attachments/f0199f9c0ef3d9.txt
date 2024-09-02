@@ -1,0 +1,1 @@
+Test passed with colors: ['BLACK', 'GREY'], track ID: 673347
